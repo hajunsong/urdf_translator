@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cell>
+    <name>base_ETC</name>
+    <root>world</root>
+    <base>
+        <name>base_ETC</name>
+        <stl>base2</stl>
+        <color>0.89 0.91 0.93 1</color>
+    </base>
+    <object>
+        <link>
+            <name>base_link</name>
+            <stl>UR10e/base_link</stl>
+            <color>0.79216 0.81961 0.9333 1</color>
+        </link>
+        <link>
+            <name>link1</name>
+            <stl>UR10e/link1</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link2</name>
+            <stl>UR10e/link2</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link3</name>
+            <stl>UR10e/link3</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link4</name>
+            <stl>UR10e/link4</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link5</name>
+            <stl>UR10e/link5</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link6</name>
+            <stl>UR10e/link6</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>UR_jig</name>
+            <stl>UR_jig</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>tool_changer</name>
+            <stl>tool_changer</stl>
+            <color>0.2 0.6 0.4 1</color>
+        </link>
+        <link>
+            <name>koras_2f</name>
+            <stl>koras_2f</stl>
+            <color>0.6 0.5 0.9 1</color>
+        </link>
+    </object>
+    <TF>
+        
+    </TF>
+</cell>

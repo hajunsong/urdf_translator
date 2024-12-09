@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cell>
+    <name>base_UR</name>
+    <root>world</root>
+    <base>
+        <name>base_UR</name>
+        <stl>base1</stl>
+        <color>0.89 0.91 0.93 1</color>
+    </base>
+    <object>
+        <link>
+            <name>base_link</name>
+            <stl>UR10e/base_link</stl>
+            <color>0.79216 0.81961 0.9333 1</color>
+        </link>
+        <link>
+            <name>link1</name>
+            <stl>UR10e/link1</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link2</name>
+            <stl>UR10e/link2</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link3</name>
+            <stl>UR10e/link3</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link4</name>
+            <stl>UR10e/link4</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link5</name>
+            <stl>UR10e/link5</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>link6</name>
+            <stl>UR10e/link6</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>UR_jig</name>
+            <stl>UR_jig</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>tool_changer</name>
+            <stl>tool_changer</stl>
+            <color>0.2 0.6 0.4 1</color>
+        </link>
+        <link>
+            <name>koras_2f</name>
+            <stl>koras_2f</stl>
+            <color>0.6 0.5 0.9 1</color>
+        </link>
+    </object>
+    <TF>
+        <joint>
+            <name>base_UR_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0.0135</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>world</parent>
+            <child>base_UR</child>
+        </joint>
+        <joint>
+            <name>UR_jig_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0.00017 0.04561 0.835</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>base_UR</parent>
+            <child>UR_jig</child>
+        </joint>
+        <joint>
+            <name>base_link_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0</xyz>
+                <rpy>0 0 3.1416</rpy>
+            </origin>
+            <parent>UR_jig</parent>
+            <child>base_link</child>
+        </joint>
+        <joint>
+            <name>q1</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>base_link</parent>
+            <child>link1</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>q2</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 0.1807</xyz>
+                <rpy>1.5708 1.5708 0</rpy>
+            </origin>
+            <parent>link1</parent>
+            <child>link2</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>q3</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>-0.6127 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>link2</parent>
+            <child>link3</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>q4</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>-0.57155 0 0</xyz>
+                <rpy>0 0 -1.5708</rpy>
+            </origin>
+            <parent>link3</parent>
+            <child>link4</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>q5</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 0.17415</xyz>
+                <rpy>1.5708 0 0</rpy>
+            </origin>
+            <parent>link4</parent>
+            <child>link5</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>q6</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 0.11985</xyz>
+                <rpy>-1.5708 0 0</rpy>
+            </origin>
+            <parent>link5</parent>
+            <child>link6</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>tool_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0.18255</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>link6</parent>
+            <child>tool_changer</child>
+        </joint>
+        <joint>
+            <name>koras_2f_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>tool_changer</parent>
+            <child>koras_2f</child>
+        </joint>
+    </TF>
+</cell>
