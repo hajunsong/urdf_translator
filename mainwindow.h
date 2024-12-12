@@ -5,8 +5,11 @@
 #include <QFileDialog>
 #include <QtDebug>
 
-#include "pugixml.hpp"
-using namespace pugi;
+#include "rapidxml/rapidxml.hpp"
+#include "rapidxml/rapidxml_utils.hpp"
+#include "rapidxml/rapidxml_ext.hpp"
+
+using namespace rapidxml;
 
 #include <iostream>
 
@@ -26,14 +29,13 @@ private:
 	Ui::MainWindow *ui;
 
 	QString loadFileName;
-	xml_document doc_input, doc_urdf;
-	xml_parse_result result;
+	xml_document<> doc_input, doc_urdf;
 
 	void make_urdf();
-	void make_link_node(xml_node robot, std::string name, std::string filename, std::string color="0 0 0 1");
-	void make_joint_node(xml_node robot, std::string name, std::string link1, std::string link2, std::string type, std::string xyz, std::string rpy, std::string axis, double lower, double upper);
-	void make_joint_node(xml_node robot, std::string name, std::string link1, std::string link2, std::string type, std::string xyz, std::string rpy);
-	void prev_urdf();
+	void make_link_node(xml_node<> *robot, xml_node<> *input);
+//	void make_link_node(xml_node robot, std::string name, std::string filename, std::string color="0 0 0 1");
+//	void make_joint_node(xml_node robot, std::string name, std::string link1, std::string link2, std::string type, std::string xyz, std::string rpy, std::string axis, double lower, double upper);
+//	void make_joint_node(xml_node robot, std::string name, std::string link1, std::string link2, std::string type, std::string xyz, std::string rpy);
 
 public slots:
 	// button event

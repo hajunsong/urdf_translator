@@ -17,7 +17,7 @@ CXX           = clang++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../URDFTranslator2 -I. -I../pugixml/include -I../../../Qt5.12.12/5.12.12/gcc_64/include -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang
+INCPATH       = -I../../URDFTranslator2 -I. -I../../../Qt5.12.12/5.12.12/gcc_64/include -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang
 QMAKE         = /home/keti/Qt5.12.12/5.12.12/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = URDFTranslator21.0.0
 DISTDIR = /home/keti/Project/URDFTranslator2/build/.tmp/URDFTranslator21.0.0
 LINK          = clang++
 LFLAGS        = -ccc-gcc-name g++ -Wl,-rpath,/home/keti/Qt5.12.12/5.12.12/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/keti/Project/URDFTranslator2/pugixml/lib/ -lpugixml /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -209,6 +209,7 @@ DIST          = ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.p
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang/qmake.conf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		../.qmake.stash \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -393,6 +394,7 @@ Makefile: ../URDFTranslator2.pro ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/featu
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang/qmake.conf \
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -566,6 +568,7 @@ Makefile: ../URDFTranslator2.pro ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/featu
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang/qmake.conf:
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
 ../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
@@ -751,11 +754,13 @@ moc_mainwindow.cpp: ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../pugixml/include/pugixml.hpp \
-		../pugixml/include/pugiconfig.hpp \
+		../rapidxml/rapidxml.hpp \
+		../rapidxml/rapidxml_utils.hpp \
+		../rapidxml/rapidxml_ext.hpp \
+		../rapidxml/rapidxml_print.hpp \
 		moc_predefs.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/bin/moc
-	/home/keti/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/keti/Project/URDFTranslator2/build/moc_predefs.h -I/home/keti/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang -I/home/keti/Project/URDFTranslator2 -I/home/keti/Project/URDFTranslator2/pugixml/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/local/include -I/usr/lib/llvm-10/lib/clang/10.0.0/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
+	/home/keti/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/keti/Project/URDFTranslator2/build/moc_predefs.h -I/home/keti/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang -I/home/keti/Project/URDFTranslator2 -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/local/include -I/usr/lib/llvm-10/lib/clang/10.0.0/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -891,8 +896,10 @@ main.o: ../main.cpp ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../pugixml/include/pugixml.hpp \
-		../pugixml/include/pugiconfig.hpp \
+		../rapidxml/rapidxml.hpp \
+		../rapidxml/rapidxml_utils.hpp \
+		../rapidxml/rapidxml_ext.hpp \
+		../rapidxml/rapidxml_print.hpp \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1015,9 +1022,49 @@ mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../pugixml/include/pugixml.hpp \
-		../pugixml/include/pugiconfig.hpp \
-		ui_mainwindow.h
+		../rapidxml/rapidxml.hpp \
+		../rapidxml/rapidxml_utils.hpp \
+		../rapidxml/rapidxml_ext.hpp \
+		../rapidxml/rapidxml_print.hpp \
+		ui_mainwindow.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMenuBar \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmenu.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QStatusBar \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QTextBrowser \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextdocument.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

@@ -29,6 +29,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
+    QTextBrowser *txtPreview;
     QHBoxLayout *horizontalLayout;
     QLineEdit *txtFilePath;
     QPushButton *btnFile;
@@ -37,7 +38,6 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QLineEdit *txtName;
     QPushButton *btnSave;
-    QTextBrowser *txtPreview;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -45,11 +45,16 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(612, 403);
+        MainWindow->resize(685, 636);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        txtPreview = new QTextBrowser(centralwidget);
+        txtPreview->setObjectName(QString::fromUtf8("txtPreview"));
+
+        gridLayout->addWidget(txtPreview, 3, 1, 1, 1);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         txtFilePath = new QLineEdit(centralwidget);
@@ -63,7 +68,7 @@ public:
         horizontalLayout->addWidget(btnFile);
 
 
-        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 2);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -86,17 +91,12 @@ public:
         horizontalLayout_2->addWidget(btnSave);
 
 
-        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
-
-        txtPreview = new QTextBrowser(centralwidget);
-        txtPreview->setObjectName(QString::fromUtf8("txtPreview"));
-
-        gridLayout->addWidget(txtPreview, 2, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 2);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 612, 22));
+        menubar->setGeometry(QRect(0, 0, 685, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
