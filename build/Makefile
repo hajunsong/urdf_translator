@@ -17,7 +17,7 @@ CXX           = clang++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../URDFTranslator2 -I. -I../../../Qt5.12.12/5.12.12/gcc_64/include -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang
+INCPATH       = -I../../URDFTranslator2 -I. -I../pugixml/include -I../../../Qt5.12.12/5.12.12/gcc_64/include -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui -I../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang
 QMAKE         = /home/keti/Qt5.12.12/5.12.12/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = URDFTranslator21.0.0
 DISTDIR = /home/keti/Project/URDFTranslator2/build/.tmp/URDFTranslator21.0.0
 LINK          = clang++
 LFLAGS        = -ccc-gcc-name g++ -Wl,-rpath,/home/keti/Qt5.12.12/5.12.12/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/keti/Project/URDFTranslator2/pugixml/lib/ -lpugixml /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/keti/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -754,13 +754,11 @@ moc_mainwindow.cpp: ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../rapidxml/rapidxml.hpp \
-		../rapidxml/rapidxml_utils.hpp \
-		../rapidxml/rapidxml_ext.hpp \
-		../rapidxml/rapidxml_print.hpp \
+		../pugixml/include/pugixml.hpp \
+		../pugixml/include/pugiconfig.hpp \
 		moc_predefs.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/bin/moc
-	/home/keti/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/keti/Project/URDFTranslator2/build/moc_predefs.h -I/home/keti/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang -I/home/keti/Project/URDFTranslator2 -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/local/include -I/usr/lib/llvm-10/lib/clang/10.0.0/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
+	/home/keti/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/keti/Project/URDFTranslator2/build/moc_predefs.h -I/home/keti/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-clang -I/home/keti/Project/URDFTranslator2 -I/home/keti/Project/URDFTranslator2/pugixml/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/keti/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/local/include -I/usr/lib/llvm-10/lib/clang/10.0.0/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -896,10 +894,8 @@ main.o: ../main.cpp ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../rapidxml/rapidxml.hpp \
-		../rapidxml/rapidxml_utils.hpp \
-		../rapidxml/rapidxml_ext.hpp \
-		../rapidxml/rapidxml_print.hpp \
+		../pugixml/include/pugixml.hpp \
+		../pugixml/include/pugiconfig.hpp \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1022,10 +1018,8 @@ mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QtDebug \
-		../rapidxml/rapidxml.hpp \
-		../rapidxml/rapidxml_utils.hpp \
-		../rapidxml/rapidxml_ext.hpp \
-		../rapidxml/rapidxml_print.hpp \
+		../pugixml/include/pugixml.hpp \
+		../pugixml/include/pugiconfig.hpp \
 		ui_mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \

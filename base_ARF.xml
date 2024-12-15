@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cell>
+    <name>base_ARF</name>
+    <root>world</root>
+    <base>
+        <name>base_ARF</name>
+        <stl>base2</stl>
+        <color>0.89 0.91 0.93 1</color>
+    </base>
+    <object>
+        <link>
+            <name>ARF_jig</name>
+            <stl>ARF_jig</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>ARF_slider_base1</name>
+            <stl>ARF_slider_base1</stl>
+            <color>0.1 0.5 0.8 1</color>
+        </link>
+        <link>
+            <name>ARF_slider1</name>
+            <stl>ARF_slider1</stl>
+            <color>0.7 0.5 0.3 1</color>
+        </link>
+        <link>
+            <name>s4_dummy</name>
+        </link>
+        <link>
+            <name>ARF_slider2</name>
+            <stl>ARF_slider2</stl>
+            <color>0.5 0.4 0.6 1</color>
+        </link>
+        <link>
+            <name>ARF_jig2</name>
+            <stl>ARF_jig2</stl>
+            <color>0.1 0.6 0.5 1</color>
+        </link>
+        <link>
+            <name>obj1</name>
+            <stl>obj1</stl>
+            <color>0.57 0.57 0.57 1</color>
+        </link>
+        <link>
+            <name>obj2</name>
+            <stl>obj2</stl>
+            <color>0.57 0.57 0.57 1</color>
+        </link>
+        <link>
+            <name>zimmer1</name>
+            <stl>zimmer</stl>
+            <color>0.3 0.3 0.3 1</color>
+        </link>
+        <link>
+            <name>zimmer2</name>
+            <stl>zimmer</stl>
+            <color>0.3 0.3 0.3 1</color>
+        </link>
+        <link>
+            <name>tooltip11</name>
+            <stl>tooltip</stl>
+            <color>0.8 0.8 0.8 1</color>
+        </link>
+        <link>
+            <name>tooltip12</name>
+            <stl>tooltip</stl>
+            <color>0.8 0.8 0.8 1</color>
+        </link>
+        <link>
+            <name>tooltip21</name>
+            <stl>tooltip</stl>
+            <color>0.8 0.8 0.8 1</color>
+        </link>
+        <link>
+            <name>tooltip22</name>
+            <stl>tooltip</stl>
+            <color>0.8 0.8 0.8 1</color>
+        </link>
+    </object>
+    <TF>
+        <joint>
+            <name>base_ARF_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.00026 0.80842 -0.0135</xyz>
+                <rpy>0 0 3.1416</rpy>
+            </origin>
+            <parent>world</parent>
+            <child>base_ARF</child>s
+        </joint>
+        <joint>
+            <name>ARF_jig_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.02392 0.03311 0.8335</xyz>
+                <rpy>0 0 -1.5709</rpy>
+            </origin>
+            <parent>base_ARF</parent>
+            <child>ARF_jig</child>
+        </joint>
+        <joint>
+            <name>slider_base1_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0.29294 -0.31 0.05514</xyz>
+                <rpy>-1.5709 0 0</rpy>
+            </origin>
+            <parent>ARF_jig</parent>
+            <child>ARF_slider_base1</child>
+        </joint>
+        <joint>
+            <name>s3</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0.03044 -0.02835 0.0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>ARF_slider_base1</parent>
+            <child>ARF_slider1</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.045</lower>
+                <upper>0.445</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>s4_dummy_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.569 -0.06672 0.06</xyz>
+                <rpy>0 1.5709 0</rpy>
+            </origin>
+            <parent>ARF_slider1</parent>
+            <child>s4_dummy</child>
+        </joint>
+        <joint>
+            <name>s4</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>0 -0.03128 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>s4_dummy</parent>
+            <child>ARF_slider2</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.055</lower>
+                <upper>0.355</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>ARF_slider2_jig2</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 -0.01652 0.06</xyz>
+                <rpy>1.5709 -1.5709 0</rpy>
+            </origin>
+            <parent>ARF_slider2</parent>
+            <child>ARF_jig2</child>
+        </joint>
+        <joint>
+            <name>ARF_jig2_to_obj1</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.02828 0.085 0.073</xyz>
+                <rpy>0 0 -1.5709</rpy>
+            </origin>
+            <parent>ARF_jig2</parent>
+            <child>obj1</child>
+        </joint>
+        <joint>
+            <name>ARF_jig2_to_obj2</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.02828 -0.085 0.073</xyz>
+                <rpy>0 0 -1.5709</rpy>
+            </origin>
+            <parent>ARF_jig2</parent>
+            <child>obj2</child>
+        </joint>
+        <joint>
+            <name>ARF_jig2_to_zimmer1</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0.085 0.0552</xyz>
+                <rpy>1.5709 0 0</rpy>
+            </origin>
+            <parent>ARF_jig2</parent>
+            <child>zimmer1</child>
+        </joint>
+        <joint>
+            <name>ARF_jig2_to_zimmer2</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 -0.085 0.0552</xyz>
+                <rpy>1.5709 0 0</rpy>
+            </origin>
+            <parent>ARF_jig2</parent>
+            <child>zimmer2</child>
+        </joint>
+        <joint>
+            <name>s5</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0.00037 0.00443 -0.041</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>zimmer1</parent>
+            <child>tooltip11</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.0</lower>
+                <upper>0.04</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>s6</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0.00037 0.00443 0.041</xyz>
+                <rpy>0 3.1416 0</rpy>
+            </origin>
+            <parent>zimmer1</parent>
+            <child>tooltip12</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.0</lower>
+                <upper>0.04</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>s7</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0.00037 0.00443 -0.041</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>zimmer2</parent>
+            <child>tooltip21</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.0</lower>
+                <upper>0.04</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>s8</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0.00037 0.00443 0.041</xyz>
+                <rpy>0 3.1416 0</rpy>
+            </origin>
+            <parent>zimmer2</parent>
+            <child>tooltip22</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.0</lower>
+                <upper>0.04</upper>
+            </limit>
+        </joint>
+    </TF>
+</cell>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="base_UR">
+	<link name="world" />
+	<link name="base_UR">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/base1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.89 0.91 0.93 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/base_link.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.9333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link3">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link3.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link4">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link4.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link5">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link5.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="link6">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR10e/link6.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="UR_jig">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/UR_jig.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.69 0.71 0.83 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tool_changer">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tool_changer.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.2 0.6 0.4 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="koras_2f">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/koras_2f.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.6 0.5 0.9 1" />
+			</material>
+		</visual>
+	</link>
+	<joint name="base_UR_fixed" type="fixed">
+		<origin xyz="0 0 0.0135" rpy="0 0 0" />
+		<parent link="world" />
+		<child link="base_UR" />
+	</joint>
+	<joint name="UR_jig_fixed" type="fixed">
+		<origin xyz="0.00017 0.04561 0.835" rpy="0 0 0" />
+		<parent link="base_UR" />
+		<child link="UR_jig" />
+	</joint>
+	<joint name="base_link_fixed" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 3.1416" />
+		<parent link="UR_jig" />
+		<child link="base_link" />
+	</joint>
+	<joint name="q1" type="revolute">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="link1" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="q2" type="revolute">
+		<origin xyz="0 0 0.1807" rpy="1.5708 1.5708 0" />
+		<parent link="link1" />
+		<child link="link2" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="q3" type="revolute">
+		<origin xyz="-0.6127 0 0" rpy="0 0 0" />
+		<parent link="link2" />
+		<child link="link3" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="q4" type="revolute">
+		<origin xyz="-0.57155 0 0" rpy="0 0 -1.5708" />
+		<parent link="link3" />
+		<child link="link4" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="q5" type="revolute">
+		<origin xyz="0 0 0.17415" rpy="1.5708 0 0" />
+		<parent link="link4" />
+		<child link="link5" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="q6" type="revolute">
+		<origin xyz="0 0 0.11985" rpy="-1.5708 0 0" />
+		<parent link="link5" />
+		<child link="link6" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="tool_fixed" type="fixed">
+		<origin xyz="0 0 0.18255" rpy="0 0 0" />
+		<parent link="link6" />
+		<child link="tool_changer" />
+	</joint>
+	<joint name="koras_2f_fixed" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="tool_changer" />
+		<child link="koras_2f" />
+	</joint>
+</robot>

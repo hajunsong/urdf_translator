@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cell>
+    <name>base_DENSO</name>
+    <root>world</root>
+    <base>
+        <name>base_DENSO</name>
+        <stl>base1</stl>
+        <color>0.89 0.91 0.93 1</color>
+    </base>
+    <object>
+        <link>
+            <name>add_axis_jig1</name>
+            <stl>add_axis_jig1</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>slider_base1</name>
+            <stl>slider_base</stl>
+            <color>0.5 0.5 0.5 1</color>
+        </link>
+        <link>
+            <name>slider1</name>
+            <stl>slider</stl>
+            <color>0.3 0.3 0.3 1</color>
+        </link>
+        <link>
+            <name>add_axis_jig2</name>
+            <stl>add_axis_jig2</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>slider_base2</name>
+            <stl>slider_base</stl>
+            <color>0.5 0.5 0.5 1</color>
+        </link>
+        <link>
+            <name>slider2</name>
+            <stl>slider</stl>
+            <color>0.3 0.3 0.3 1</color>
+        </link>
+        <link>
+            <name>DENSO_jig</name>
+            <stl>DENSO_jig</stl>
+            <color>0.69 0.71 0.83 1</color>
+        </link>
+        <link>
+            <name>d_link0</name>
+            <stl>DENSO/d_link0</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>d_link1</name>
+            <stl>DENSO/d_link1</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>d_link2</name>
+            <stl>DENSO/d_link2</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>d_link3</name>
+            <stl>DENSO/d_link3</stl>
+            <color>0.79216 0.81961 0.93333 1</color>
+        </link>
+        <link>
+            <name>d_end</name>
+        </link>
+        <link>
+            <name>denso_tool_changer</name>
+            <stl>denso_tool_changer</stl>
+            <color>0.6587 0.128 0.778 1</color>
+        </link>
+        <link>
+            <name>ATC</name>
+            <stl>ATC</stl>
+            <color>0.0 0.5 0.6 1</color>
+        </link>
+    </object>
+    <TF>
+        <joint>
+            <name>base_DENSO_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.80034 0.81298 0</xyz>
+                <rpy>0 0 -1.5708</rpy>
+            </origin>
+            <parent>world</parent>
+            <child>base_DENSO</child>
+        </joint>
+        <joint>
+            <name>add_axis_jig1_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.02489 0.17061 0.8315</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>base_DENSO</parent>
+            <child>add_axis_jig1</child>
+        </joint>
+        <joint>
+            <name>slider_base1_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0.37507 0 0.05482</xyz>
+                <rpy>1.5709 0 -1.5709</rpy>
+            </origin>
+            <parent>add_axis_jig1</parent>
+            <child>slider_base1</child>
+        </joint>
+        <joint>
+            <name>s1</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>0 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>slider_base1</parent>
+            <child>slider1</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.05</lower>
+                <upper>0.45</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>add_axis_jig2_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0.1807</xyz>
+                <rpy>-1.5709 0 0</rpy>
+            </origin>
+            <parent>slider1</parent>
+            <child>add_axis_jig2</child>
+        </joint>
+        <joint>
+            <name>slider_base2_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0.35 0 0.05482</xyz>
+                <rpy>1.5709 0 -1.5709</rpy>
+            </origin>
+            <parent>add_axis_jig2</parent>
+            <child>slider_base2</child>
+        </joint>
+        <joint>
+            <name>s2</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>-0 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>slider_base2</parent>
+            <child>slider2</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>0.05</lower>
+                <upper>0.45</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>DENSO_jig_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0.06276 0.1</xyz>
+                <rpy>-1.5709 0 0</rpy>
+            </origin>
+            <parent>slider2</parent>
+            <child>DENSO_jig</child>
+        </joint>
+        <joint>
+            <name>d_link0_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0</xyz>
+                <rpy>0 0 -1.5709</rpy>
+            </origin>
+            <parent>DENSO_jig</parent>
+            <child>d_link0</child>
+        </joint>
+        <joint>
+            <name>d_q1</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 0.37011</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>d_link0</parent>
+            <child>d_link1</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>d_q2</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0.325 0 0</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>d_link1</parent>
+            <child>d_link2</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>d_q3</name>
+            <type>prismatic</type>
+            <origin>
+                <xyz>0.225 0 0</xyz>
+                <rpy>3.1416 0 0</rpy>
+            </origin>
+            <parent>d_link2</parent>
+            <child>d_link3</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-0.206</lower>
+                <upper>0.0</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>d_q3_to_end</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 0.32900</xyz>
+                <rpy>3.1416 0 0</rpy>
+            </origin>
+            <parent>d_link3</parent>
+            <child>d_end</child>
+        </joint>
+        <joint>
+            <name>d_q4</name>
+            <type>revolute</type>
+            <origin>
+                <xyz>0 0 -0.001</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>d_end</parent>
+            <child>denso_tool_changer</child>
+            <axis>0 0 1</axis>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </joint>
+        <joint>
+            <name>denso_tool_changer_to_ATC</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0 0 -0.06</xyz>
+                <rpy>3.1416 0 -1.5709</rpy>
+            </origin>
+            <parent>denso_tool_changer</parent>
+            <child>ATC</child>
+        </joint>
+    </TF>
+</cell>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="base_ETC">
+	<link name="world" />
+	<link name="base_ETC">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/base2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.89 0.91 0.93 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="feeder">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/feeder.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.29 0.61 0.93 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tool_stand">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tool_stand.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.5 0.5 0.5 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="koras_2f_stand">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/koras_2f.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.6 0.5 0.9 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="KRVG_stand">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/KRVG.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.6 0.5 0.0 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ATC_stand">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ATC.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.0 0.5 0.6 1" />
+			</material>
+		</visual>
+	</link>
+	<joint name="base_ETC_fixed" type="fixed">
+		<origin xyz="-0.80481 0 -0.0135" rpy="0 0 0" />
+		<parent link="world" />
+		<child link="base_ETC" />
+	</joint>
+	<joint name="feeder_fixed" type="fixed">
+		<origin xyz="-0.24992 0.19561 0.8465" rpy="0 0 0" />
+		<parent link="base_ETC" />
+		<child link="feeder" />
+	</joint>
+	<joint name="tool_stand_fixed" type="fixed">
+		<origin xyz="0.15008 0.14561 0.8465" rpy="0 0 -1.5708" />
+		<parent link="base_ETC" />
+		<child link="tool_stand" />
+	</joint>
+	<joint name="koras_2f_stand_fixed" type="fixed">
+		<origin xyz="-0.12582 0 0.312" rpy="3.1416 0 1.5709" />
+		<parent link="tool_stand" />
+		<child link="koras_2f_stand" />
+	</joint>
+	<joint name="KRVG_stand_fixed" type="fixed">
+		<origin xyz="-0.12582 -0.1525 0.3125" rpy="3.1416 0 1.5709" />
+		<parent link="tool_stand" />
+		<child link="KRVG_stand" />
+	</joint>
+	<joint name="ATC_stand_fixed" type="fixed">
+		<origin xyz="-0.1258 0.1525 0.314" rpy="3.1416 0 1.5709" />
+		<parent link="tool_stand" />
+		<child link="ATC_stand" />
+	</joint>
+</robot>

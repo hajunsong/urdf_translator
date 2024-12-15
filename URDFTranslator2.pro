@@ -12,7 +12,7 @@ HEADERS += \
 FORMS += \
 	mainwindow.ui
 
-#LIBS += -L$$PWD/pugixml/lib/ -lpugixml
+LIBS += -L$$PWD/pugixml/lib/ -lpugixml
 
-#INCLUDEPATH += $$PWD/pugixml/include
-#DEPENDPATH += $$PWD/pugixml/include
+INCLUDEPATH += $$PWD/pugixml/include
+DEPENDPATH += $$PWD/pugixml/include

@@ -9,57 +9,91 @@
     </base>
     <object>
         <link>
-            <name>base_link</name>
-            <stl>UR10e/base_link</stl>
-            <color>0.79216 0.81961 0.9333 1</color>
+            <name>feeder</name>
+            <stl>feeder</stl>
+            <color>0.29 0.61 0.93 1</color>
         </link>
         <link>
-            <name>link1</name>
-            <stl>UR10e/link1</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
+            <name>tool_stand</name>
+            <stl>tool_stand</stl>
+            <color>0.5 0.5 0.5 1</color>
         </link>
         <link>
-            <name>link2</name>
-            <stl>UR10e/link2</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
-        </link>
-        <link>
-            <name>link3</name>
-            <stl>UR10e/link3</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
-        </link>
-        <link>
-            <name>link4</name>
-            <stl>UR10e/link4</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
-        </link>
-        <link>
-            <name>link5</name>
-            <stl>UR10e/link5</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
-        </link>
-        <link>
-            <name>link6</name>
-            <stl>UR10e/link6</stl>
-            <color>0.79216 0.81961 0.93333 1</color>
-        </link>
-        <link>
-            <name>UR_jig</name>
-            <stl>UR_jig</stl>
-            <color>0.69 0.71 0.83 1</color>
-        </link>
-        <link>
-            <name>tool_changer</name>
-            <stl>tool_changer</stl>
-            <color>0.2 0.6 0.4 1</color>
-        </link>
-        <link>
-            <name>koras_2f</name>
+            <name>koras_2f_stand</name>
             <stl>koras_2f</stl>
             <color>0.6 0.5 0.9 1</color>
         </link>
+        <link>
+            <name>KRVG_stand</name>
+            <stl>KRVG</stl>
+            <color>0.6 0.5 0.0 1</color>
+        </link>
+        <link>
+            <name>ATC_stand</name>
+            <stl>ATC</stl>
+            <color>0.0 0.5 0.6 1</color>
+        </link>
     </object>
     <TF>
-        
+        <joint>
+            <name>base_ETC_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.80481 0 -0.0135</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>world</parent>
+            <child>base_ETC</child>
+        </joint>
+        <joint>
+            <name>feeder_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.24992 0.19561 0.8465</xyz>
+                <rpy>0 0 0</rpy>
+            </origin>
+            <parent>base_ETC</parent>
+            <child>feeder</child>
+        </joint>
+        <joint>
+            <name>tool_stand_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>0.15008 0.14561 0.8465</xyz>
+                <rpy>0 0 -1.5708</rpy>
+            </origin>
+            <parent>base_ETC</parent>
+            <child>tool_stand</child>
+        </joint>
+        <joint>
+            <name>koras_2f_stand_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.12582 0 0.312</xyz>
+                <rpy>3.1416 0 1.5709</rpy>
+            </origin>
+            <parent>tool_stand</parent>
+            <child>koras_2f_stand</child>
+        </joint>
+        <joint>
+            <name>KRVG_stand_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.12582 -0.1525 0.3125</xyz>
+                <rpy>3.1416 0 1.5709</rpy>
+            </origin>
+            <parent>tool_stand</parent>
+            <child>KRVG_stand</child>
+        </joint>
+        <joint>
+            <name>ATC_stand_fixed</name>
+            <type>fixed</type>
+            <origin>
+                <xyz>-0.1258 0.1525 0.314</xyz>
+                <rpy>3.1416 0 1.5709</rpy>
+            </origin>
+            <parent>tool_stand</parent>
+            <child>ATC_stand</child>
+        </joint>
     </TF>
 </cell>

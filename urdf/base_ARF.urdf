@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="base_ARF">
+	<link name="world" />
+	<link name="base_ARF">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/base2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.89 0.91 0.93 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ARF_jig">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ARF_jig.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.69 0.71 0.83 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ARF_slider_base1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ARF_slider_base1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.1 0.5 0.8 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ARF_slider1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ARF_slider1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.7 0.5 0.3 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="s4_dummy" />
+	<link name="ARF_slider2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ARF_slider2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.5 0.4 0.6 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ARF_jig2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ARF_jig2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.1 0.6 0.5 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="obj1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/obj1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.57 0.57 0.57 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="obj2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/obj2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.57 0.57 0.57 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="zimmer1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/zimmer.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.3 0.3 0.3 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="zimmer2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/zimmer.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.3 0.3 0.3 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tooltip11">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tooltip.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.8 0.8 0.8 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tooltip12">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tooltip.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.8 0.8 0.8 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tooltip21">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tooltip.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.8 0.8 0.8 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="tooltip22">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/tooltip.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.8 0.8 0.8 1" />
+			</material>
+		</visual>
+	</link>
+	<joint name="base_ARF_fixed" type="fixed">
+		<origin xyz="-0.00026 0.80842 -0.0135" rpy="0 0 3.1416" />
+		<parent link="world" />
+		<child link="base_ARF" />
+	</joint>
+	<joint name="ARF_jig_fixed" type="fixed">
+		<origin xyz="-0.02392 0.03311 0.8335" rpy="0 0 -1.5709" />
+		<parent link="base_ARF" />
+		<child link="ARF_jig" />
+	</joint>
+	<joint name="slider_base1_fixed" type="fixed">
+		<origin xyz="0.29294 -0.31 0.05514" rpy="-1.5709 0 0" />
+		<parent link="ARF_jig" />
+		<child link="ARF_slider_base1" />
+	</joint>
+	<joint name="s3" type="prismatic">
+		<origin xyz="-0.03044 -0.02835 0.0" rpy="0 0 0" />
+		<parent link="ARF_slider_base1" />
+		<child link="ARF_slider1" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.045" upper="0.445" effort="100" velocity="10" />
+	</joint>
+	<joint name="s4_dummy_fixed" type="fixed">
+		<origin xyz="-0.569 -0.06672 0.06" rpy="0 1.5709 0" />
+		<parent link="ARF_slider1" />
+		<child link="s4_dummy" />
+	</joint>
+	<joint name="s4" type="prismatic">
+		<origin xyz="0 -0.03128 0" rpy="0 0 0" />
+		<parent link="s4_dummy" />
+		<child link="ARF_slider2" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.055" upper="0.355" effort="100" velocity="10" />
+	</joint>
+	<joint name="ARF_slider2_jig2" type="fixed">
+		<origin xyz="0 -0.01652 0.06" rpy="1.5709 -1.5709 0" />
+		<parent link="ARF_slider2" />
+		<child link="ARF_jig2" />
+	</joint>
+	<joint name="ARF_jig2_to_obj1" type="fixed">
+		<origin xyz="-0.02828 0.085 0.073" rpy="0 0 -1.5709" />
+		<parent link="ARF_jig2" />
+		<child link="obj1" />
+	</joint>
+	<joint name="ARF_jig2_to_obj2" type="fixed">
+		<origin xyz="-0.02828 -0.085 0.073" rpy="0 0 -1.5709" />
+		<parent link="ARF_jig2" />
+		<child link="obj2" />
+	</joint>
+	<joint name="ARF_jig2_to_zimmer1" type="fixed">
+		<origin xyz="0 0.085 0.0552" rpy="1.5709 0 0" />
+		<parent link="ARF_jig2" />
+		<child link="zimmer1" />
+	</joint>
+	<joint name="ARF_jig2_to_zimmer2" type="fixed">
+		<origin xyz="0 -0.085 0.0552" rpy="1.5709 0 0" />
+		<parent link="ARF_jig2" />
+		<child link="zimmer2" />
+	</joint>
+	<joint name="s5" type="prismatic">
+		<origin xyz="-0.00037 0.00443 -0.041" rpy="0 0 0" />
+		<parent link="zimmer1" />
+		<child link="tooltip11" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.0" upper="0.04" effort="100" velocity="10" />
+	</joint>
+	<joint name="s6" type="prismatic">
+		<origin xyz="-0.00037 0.00443 0.041" rpy="0 3.1416 0" />
+		<parent link="zimmer1" />
+		<child link="tooltip12" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.0" upper="0.04" effort="100" velocity="10" />
+	</joint>
+	<joint name="s7" type="prismatic">
+		<origin xyz="-0.00037 0.00443 -0.041" rpy="0 0 0" />
+		<parent link="zimmer2" />
+		<child link="tooltip21" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.0" upper="0.04" effort="100" velocity="10" />
+	</joint>
+	<joint name="s8" type="prismatic">
+		<origin xyz="-0.00037 0.00443 0.041" rpy="0 3.1416 0" />
+		<parent link="zimmer2" />
+		<child link="tooltip22" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.0" upper="0.04" effort="100" velocity="10" />
+	</joint>
+</robot>

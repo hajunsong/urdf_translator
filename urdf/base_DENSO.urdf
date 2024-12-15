@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="base_DENSO">
+	<link name="world" />
+	<link name="base_DENSO">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/base1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.89 0.91 0.93 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="add_axis_jig1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/add_axis_jig1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.69 0.71 0.83 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="slider_base1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/slider_base.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.5 0.5 0.5 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="slider1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/slider.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.3 0.3 0.3 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="add_axis_jig2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/add_axis_jig2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.69 0.71 0.83 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="slider_base2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/slider_base.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.5 0.5 0.5 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="slider2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/slider.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.3 0.3 0.3 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="DENSO_jig">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/DENSO_jig.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.69 0.71 0.83 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="d_link0">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/DENSO/d_link0.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="d_link1">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/DENSO/d_link1.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="d_link2">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/DENSO/d_link2.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="d_link3">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/DENSO/d_link3.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="d_end" />
+	<link name="denso_tool_changer">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/denso_tool_changer.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.6587 0.128 0.778 1" />
+			</material>
+		</visual>
+	</link>
+	<link name="ATC">
+		<visual>
+			<geometry>
+				<mesh filename="package://keti_workcell_description/meshes/ATC.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.0 0.5 0.6 1" />
+			</material>
+		</visual>
+	</link>
+	<joint name="base_DENSO_fixed" type="fixed">
+		<origin xyz="-0.80034 0.81298 0" rpy="0 0 -1.5708" />
+		<parent link="world" />
+		<child link="base_DENSO" />
+	</joint>
+	<joint name="add_axis_jig1_fixed" type="fixed">
+		<origin xyz="-0.02489 0.17061 0.8315" rpy="0 0 0" />
+		<parent link="base_DENSO" />
+		<child link="add_axis_jig1" />
+	</joint>
+	<joint name="slider_base1_fixed" type="fixed">
+		<origin xyz="0.37507 0 0.05482" rpy="1.5709 0 -1.5709" />
+		<parent link="add_axis_jig1" />
+		<child link="slider_base1" />
+	</joint>
+	<joint name="s1" type="prismatic">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="slider_base1" />
+		<child link="slider1" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.05" upper="0.45" effort="100" velocity="10" />
+	</joint>
+	<joint name="add_axis_jig2_fixed" type="fixed">
+		<origin xyz="0 0 0.1807" rpy="-1.5709 0 0" />
+		<parent link="slider1" />
+		<child link="add_axis_jig2" />
+	</joint>
+	<joint name="slider_base2_fixed" type="fixed">
+		<origin xyz="0.35 0 0.05482" rpy="1.5709 0 -1.5709" />
+		<parent link="add_axis_jig2" />
+		<child link="slider_base2" />
+	</joint>
+	<joint name="s2" type="prismatic">
+		<origin xyz="-0 0 0" rpy="0 0 0" />
+		<parent link="slider_base2" />
+		<child link="slider2" />
+		<axis xyz="0 0 1" />
+		<limit lower="0.05" upper="0.45" effort="100" velocity="10" />
+	</joint>
+	<joint name="DENSO_jig_fixed" type="fixed">
+		<origin xyz="0 0.06276 0.1" rpy="-1.5709 0 0" />
+		<parent link="slider2" />
+		<child link="DENSO_jig" />
+	</joint>
+	<joint name="d_link0_fixed" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 -1.5709" />
+		<parent link="DENSO_jig" />
+		<child link="d_link0" />
+	</joint>
+	<joint name="d_q1" type="revolute">
+		<origin xyz="0 0 0.37011" rpy="0 0 0" />
+		<parent link="d_link0" />
+		<child link="d_link1" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="d_q2" type="revolute">
+		<origin xyz="0.325 0 0" rpy="0 0 0" />
+		<parent link="d_link1" />
+		<child link="d_link2" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="d_q3" type="prismatic">
+		<origin xyz="0.225 0 0" rpy="3.1416 0 0" />
+		<parent link="d_link2" />
+		<child link="d_link3" />
+		<axis xyz="0 0 1" />
+		<limit lower="-0.206" upper="0.0" effort="100" velocity="10" />
+	</joint>
+	<joint name="d_q3_to_end" type="fixed">
+		<origin xyz="0 0 0.32900" rpy="3.1416 0 0" />
+		<parent link="d_link3" />
+		<child link="d_end" />
+	</joint>
+	<joint name="d_q4" type="revolute">
+		<origin xyz="0 0 -0.001" rpy="0 0 0" />
+		<parent link="d_end" />
+		<child link="denso_tool_changer" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="3.14" effort="100" velocity="10" />
+	</joint>
+	<joint name="denso_tool_changer_to_ATC" type="fixed">
+		<origin xyz="0 0 -0.06" rpy="3.1416 0 -1.5709" />
+		<parent link="denso_tool_changer" />
+		<child link="ATC" />
+	</joint>
+</robot>
